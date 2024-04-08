@@ -1,0 +1,67 @@
+
+header {
+    height: 200px;
+    color: #461c56;
+}
+
+.site-header {
+    height: 200px;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+p {
+    padding: 10px;
+}
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    background-color: #b893cc;
+    color: #fff;
+    padding: 10px;
+}
+
+fab.fa-github {
+    font-size: 50px;
+}
+
+img.image {
+    width: 150px;
+    height: auto;
+    border-radius: 45%;
+}
+
+img.picture {
+    width: 100px;
+    height: auto;
+}
+
+img.image-man {
+    width: 200px;
+    height: auto;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.magic-quote {
+    font-style: italic;
+    margin-top: 20px;
+}

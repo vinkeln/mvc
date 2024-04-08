@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Magic page</h1>
+    <p>Welcome to my awesome magical homepage.</p>
+    <p style="color: {{ color }};">This is the current magic number: {{ number }}</p>
+    <p>The current date is: {{ date }}</p>
+    <p class="magic-quote">"{{ quote }}"</p>
+    <img src="{{ asset('images/man.png') }}" alt="En man" class="image-man">
+{% endblock %}
