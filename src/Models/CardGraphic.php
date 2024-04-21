@@ -54,6 +54,7 @@ class CardGraphic extends Card
         return $this->representation[$this->value - 1];
     }
     
+    
     public function getDeck()
 {
     return $this->representation;
