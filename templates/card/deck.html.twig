@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<h1>Kortlek</h1>
+
+<p>Här visas samtliga kort i kortleken i ordning.</p>
+
+{% for card in cardDeck %}
+    <span class="cards">{{ card }}</span>
+{% endfor %}
+{% endblock %}
+
+
