@@ -7,20 +7,17 @@ class Card
 {
     protected $value;
     protected $suit;
+    
 
     public function __construct()
     {
-        $this->value = null;
+
     }
+    
 
     public function shuffle(): int
     {
         $this->value = random_int(1, 46);
-        return $this->value;
-    }
-
-    public function getValue(): null
-    {
         return $this->value;
     }
 
