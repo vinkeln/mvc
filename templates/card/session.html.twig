@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session Display{% endblock %}
+
+{% block body %}
+<h1>Session</h1>
+<p>Kvarstående korten i sessionen:</p>
+
+{% if deck %}
+    <h2>Deck</h2>
+    <ul>
+        {% for card in deck %}
+            <span class="cards">{{ card }}</span>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Inga kort kvar i sessionen.</p>
+{% endif %}
+
+<a href="{{ path('card_start') }}">Tillbaka</a>
+{% endblock %}
