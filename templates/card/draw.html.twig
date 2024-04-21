@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>Card Game</h1>
+
+<p>Draw a card</p>
+
+<body>
+    <h1>Drawn Cards:</h1>
+    {% if card is iterable %}
+        <ul>
+            {% for card_item in card %}
+                <span class="cards">{{ card_item }}</span>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>{{ card }}</h2>
+    {% endif %}
+    <h2>Remaining Cards: {{ remaining }}</h2>
+    {#} Reload the page to draw another card #}
+    <button onclick="location.reload();">Draw Another Card</button>
+</body>
+
+{% endblock %}
