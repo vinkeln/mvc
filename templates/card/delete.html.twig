@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session Cleared{% endblock %}
+
+{% block body %}
+    <h1>Session Cleared</h1>
+    
+    {% for message in app.flashes('success') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <p>The session has been successfully cleared. You can start a new session by navigating back to the <a href="{{ path('card_start') }}">main page</a>.</p>
+{% endblock %}
