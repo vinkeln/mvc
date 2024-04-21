@@ -4,13 +4,16 @@
 
 namespace App\Models;
 
-class CardDeck
+class CardDeck 
 {
+
     private $cards = [];
+    private $suit;
 
     public function __construct()
     {
         $this->initializeDeck();
+        session_start();
     }
     //lägger till korten i en array
     private function initializeDeck()
@@ -20,9 +23,19 @@ class CardDeck
 
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-                $this->cards[] = new CardGraphic($suit, $value);
+                $this->cards[] = new Card($suit, $value);
             }
         }
+        $this->sortdeck();
+    }
+    public function sortdeck()
+    {
+        usort($this->cards, function ($card1, $card2) {
+            if ($card1->getSuit() === $card2->getSuit()) {
+                return $card1->getValue() <=> $card2->getValue();
+            }
+            return $card1->getSuit() <=> $card2->getSuit();
+        });
     }
     //function to shuffle the deck
     public function shuffle()
@@ -35,7 +48,7 @@ class CardDeck
         return array_shift($this->cards); // Return and remove the first card from the deck
     }
 
-    /*public function drawMultiple($number)
+    public function drawMultiple($number)
     {
         $drawnCards = [];
         for ($i = 0; $i < $number; $i++) {
@@ -46,7 +59,11 @@ class CardDeck
             }
         }
         return $drawnCards;
-    }*/
+    }
+    //card/deck 
+    public function getDeck() {
+        return $this->cards;
+    }
 
     public function getRemainingCards()
     {
@@ -54,8 +71,27 @@ class CardDeck
     }
 
 
-    public function getCards()
+    public function getCardsInfo()
     {
         return $this->cards;
+    }
+
+        public function getColor(): string
+    {
+        if ($this->suit === 'Hearts' || $this->suit === 'Diamonds') {
+            return 'red';
+        } else {
+            return 'black';
+        }
+    }
+    //api/deck??
+    public function getCards()
+    {
+        return array_map(function ($card) {
+            return [
+                'suit' => $card->getSuit(),
+                'value' => $card->getValue()
+            ];
+        }, $this->cards);
     }
 }
