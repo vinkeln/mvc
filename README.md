@@ -2,7 +2,7 @@
 
 Detta är min webbsida skapad symfony. Här kommer jag ladda upp delar av kursmomenten.
 
-![Symfony med PHP](public/assets/img/elefant.png)
+![Symfony med PHP](public/images/elefant.png)
 -------
 
 ## Introduktion
