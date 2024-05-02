@@ -4,44 +4,59 @@
 
 namespace App\Models;
 
-class CardDeck 
+class CardDeck
 {
-
     private $cards = [];
-    private $suit;
 
     public function __construct()
     {
         $this->initializeDeck();
-        session_start();
+        
     }
     //lägger till korten i en array
     private function initializeDeck()
     {
-        $suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
-
+        $suits = ['♠', '♣', '♥', '♦'];
+        $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        //$colors = ['red', 'black']; //array med färger
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-                $this->cards[] = new Card($suit, $value);
+
+                if ($suit === '♥' || $suit === '♦') {
+                    $this->cards[] = '<span class="card red">' . $value . $suit . '</span>';
+                }
+                $this->cards[] = '<span class="card black">' . $value . $suit . '</span>';
+
             }
         }
-        $this->sortdeck();
+        //$this->sortdeck();
+        return $this->cards;
+        
+    }
+
+    public function deteminateColor($suit)
+    {
+        if ($suit === 'Hearts' || $suit === 'Diamonds') {
+            return 'red';
+        } else {
+            return 'black';
+        }
     }
     public function sortdeck()
     {
-        usort($this->cards, function ($card1, $card2) {
+        usort($this->cards, function ($card1, $card2) { // sortera cards arrayen
             if ($card1->getSuit() === $card2->getSuit()) {
-                return $card1->getValue() <=> $card2->getValue();
-            }
+                // kollar om suit har samma färg, om de har jämförs deras värde 
+                return $card1->getValue() <=> $card2->getValue(); //
+            } // Om färgerna på de två korten inte är lika, jämför deras färger
             return $card1->getSuit() <=> $card2->getSuit();
         });
     }
     //function to shuffle the deck
-    public function shuffle()
-{
-    shuffle($this->cards);
-}
+    public function shuffleDeck()
+    {
+        return shuffle($this->cards);
+    }
 
     public function draw()
     {
@@ -60,31 +75,13 @@ class CardDeck
         }
         return $drawnCards;
     }
-    //card/deck 
-    public function getDeck() {
-        return $this->cards;
-    }
-
-    public function getRemainingCards()
-    {
-        return count($this->cards);
-    }
-
-
-    public function getCardsInfo()
+    //card/deck
+    public function getDeck()
     {
         return $this->cards;
     }
 
-        public function getColor(): string
-    {
-        if ($this->suit === 'Hearts' || $this->suit === 'Diamonds') {
-            return 'red';
-        } else {
-            return 'black';
-        }
-    }
-    //api/deck??
+
     public function getCards()
     {
         return array_map(function ($card) {
