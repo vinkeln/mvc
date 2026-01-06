@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Models\Card;
 use App\Models\CardGraphic;
+use App\Models\CardDeck;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,57 +31,90 @@ class CardController extends AbstractController
     #[Route("/card/deck", name: "card_deck")]
     public function deck(): Response
     {
-        $card = new CardGraphic();
+        $cardDeck = new CardDeck();
+        $deck = $cardDeck->getDeck();
+
+        $cardsData = array_map(function ($card) use ($cardDeck) {
+            return [
+                'string' => $cardDeck->getCardString($card),
+                'color' => $card->color
+            ];
+        }, $deck);
 
         $data = [
-            "cardDeck" => $card->getDeck(),
+            "cardDeck" => $cardsData,
         ];
 
         return $this->render('card/deck.html.twig', $data);
     }
 
 
-    // Skapa en sida card/deck/shuffle som visar samtliga kort i kortleken när den har blandats.
-    #[Route("/card/deck/shuffle", name: "card_shuffle")]
+    /*// Skapa en sida card/deck/shuffle som visar samtliga kort i kortleken när den har blandats.
+    #[Route("/card/deck/shuffle", name: "card_shuffle", methods: ['GET','POST'])]
     public function shuffle(SessionInterface $session, CardGraphic $cardGraphic): Response
     {
         $card = $cardGraphic->getCards();
         shuffle($card); //blandar korten
-        $session->set('deck', $cardGraphic->getCards());
-        return $this->render('card/shuffle.html.twig', ['cards' => $card]);
-    }
-    
-    // Skapa en sida card/draw som drar ett kort från kortleken och visar det.
-    #[Route("/card/deck/draw/{number}", name: "card_draw", requirements: ['number' => '\d+'])]
-    public function drawCards(SessionInterface $session, int $number = 1): Response {
-        $deck = $session->get('deck', [] );
-    if (!is_array($deck)) {
+        $session->set('deck', $card);
+        return $this->render('card/shuffle.html.twig', [
+            'cards' => $card,
+            'remaining' => count($card),
+            'cardColors' => $cardGraphic->getCardColors()
+        ]);
+    }*/
 
-        $deck = [
-            '🂡', '🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨',
-            '🂩', '🂪', '🂫', '🂬', '🂭', '🂮', '🂱', '🂲',
-            '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺',
-            '🂻', '🂼', '🂽', '🂾', '🃁', '🃂', '🃃', '🃄',
-            '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃌',
-            '🃍', '🃎', '🃑', '🃒', '🃓', '🃔', '🃕', '🃖',
-            '🃗', '🃘', '🃙', '🃚', '🃛', '🃜', '🃝', '🃞'
-
-        ];
+// src/Controller/CardController.php
+#[Route("/card/deck/shuffle", name: "card_shuffle", methods: ['GET','POST'])]
+public function shuffle(SessionInterface $session, CardGraphic $cardGraphic): Response
+{
+    $card = $cardGraphic->getCards();
+    if (empty($card)) {
+        $cardGraphic->shuffleCards();
+        $card = $cardGraphic->getCards();
     }
-    $CardGraphic = new CardGraphic();
-    $CardGraphic->setDeck($deck ?? $CardGraphic->getDeck());
-    $pullCard = $CardGraphic->drawCard($number);
-    $session->set('deck', $CardGraphic->getDeck());
-    return $this->render('card/draw.html.twig', [
-        'card' => $pullCard,
-        'remaining' => count($CardGraphic->getDeck())
+    shuffle($card); //blandar korten
+    $session->set('deck', $card);
+    return $this->render('card/shuffle.html.twig', [
+        'cards' => $card,
+        'remaining' => count($card),
+        'cardColors' => $cardGraphic->getCardColors()
     ]);
+}
+
+    // Skapa en sida card/draw som drar ett kort från kortleken och visar det.
+    #[Route("/card/deck/draw/{number}", name: "card_draw", requirements: ['number' => '\d+'], methods: ['GET','POST'])]
+    public function drawCards(SessionInterface $session, int $number = 1): Response
+    {
+        $deck = $session->get('deck', []);
+        if (!is_array($deck)) {
+
+            $deck = [
+                '🂡', '🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨',
+                '🂩', '🂪', '🂫', '🂬', '🂭', '🂮', '🂱', '🂲',
+                '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺',
+                '🂻', '🂼', '🂽', '🂾', '🃁', '🃂', '🃃', '🃄',
+                '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃌',
+                '🃍', '🃎', '🃑', '🃒', '🃓', '🃔', '🃕', '🃖',
+                '🃗', '🃘', '🃙', '🃚', '🃛', '🃜', '🃝', '🃞'
+
+            ];
+        }
+        $CardGraphic = new CardGraphic();
+        $CardGraphic->setDeck($deck ?? $CardGraphic->getDeck());
+        $CardGraphic->setCardColors();
+        $pullCard = $CardGraphic->drawCard($number);
+        $session->set('deck', $CardGraphic->getDeck());
+        return $this->render('card/draw.html.twig', [
+            'card' => $pullCard,
+            'remaining' => count($CardGraphic->getDeck()),
+            'cardColors' => $CardGraphic->getCardColors()
+        ]);
     }
-    
+
     #[Route("/session/show", name: "session_show")]
     public function showSession(SessionInterface $session): Response
     {
-        $deck = $session->get('deck');
+        $deck = $session->get('deck', []);
         return $this->render('card/session.html.twig', ['deck' => $deck]);
     }
 

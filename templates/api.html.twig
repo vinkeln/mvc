@@ -5,8 +5,16 @@
 {% block body %}
     <h1>API Index</h1>
     <p>Welcome to the API Index page.</p>
-        <div>
-            <p><a href="http://localhost:8888/api/quote">Link</a></p>
-            <p>Please click and you will be granted a beautiful quote</p>
-        </div>
+    <div>
+        <p><a href="{{ path('api_quote') }}">Quote</a></p>
+        <p>Please click and you will be granted a beautiful quote</p>
+        <p><a href="{{ path('api_deck') }}">Deck</a></p>
+        <p>Click here to get a deck of cards</p>
+        <p><a href="{{ path('api_deck_shuffle') }}">Shuffle</a></p>
+        <p>Click here to shuffle the deck</p>
+        <p><a href="{{ path('api_deck_draw') }}">Draw</a></p>
+        <p>Click here to draw a card from the deck</p>
+         <p><a href="{{ path('api_game') }}">Game</a></p>
+            <p>Get current game state for 21.</p>
+    </div>
 {% endblock %}

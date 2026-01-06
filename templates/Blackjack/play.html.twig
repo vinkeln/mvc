@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spela 21{% endblock %}
+
+{% block body %}
+<div class="blackjack-container">
+    <h1>Spel 21</h1>
+
+    <div class="game-area">
+        
+        <!-- Bank -->
+        <div class="bank-area">
+            <h2>Bank: {{ bank_hand.total }} poäng</h2>
+            <div class="card-display">
+                {% if game_over %}
+                    {% for card in bank_hand.cards %}
+                        <span class="card-{{ card.color }}">{{ card.asString }}</span>
+                    {% endfor %}
+                {% else %}
+                    <span>🂠</span>
+                    <span class="card-hidden">🂠</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Spelare -->
+        <div class="player-area">
+            <h2>Du: {{ player_hand.total }} poäng</h2>
+            <div class="card-display">
+                {% for card in player_hand.cards %}
+                    <span class="card-{{ card.color }}">{{ card.asString }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Resultat eller knappar -->
+        {% if game_over %}
+            <div class="result-area {{ winner == 'player' ? 'result-win' : 'result-lose' }}">
+                <h2>
+                    {% if winner == 'player' %}
+                        Du vann
+                    {% else %}
+                        Banken vann
+                    {% endif %}
+                </h2>
+                <p>Du: {{ player_hand.total }} poäng | Bank: {{ bank_hand.total }} poäng</p>
+                <a href="{{ path('game_init') }}" class="btn-new-game">Nytt spel</a>
+            </div>
+        {% else %}
+            <div class="game-actions">
+                <a href="{{ path('game_draw') }}" class="btn-draw">Dra kort</a>
+                <a href="{{ path('game_stand') }}" class="btn-stand">Stanna</a>
+            </div>
+        {% endif %}
+
+        <p class="deck-info">Kort kvar i leken: {{ deck_count }}</p>
+    </div>
+
+    <div class="back-link">
+        <a href="{{ path('game_home') }}">← Tillbaka till spelregler</a>
+    </div>
+</div>
+{% endblock %}

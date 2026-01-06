@@ -8,24 +8,38 @@
     <nav>
         <ul>
             <li><a href="#kmom01">Kmom01</a></li>
+            <li><a href="#kmom02">Kmom02</a></li>
             <!--Lägg till fler kursmoment med tiden-->
         </ul>
     </nav>
 
     <p id="kmom01">
         <h3>Kmom01</h3>
-        <p>Mina förkunskaper inför denna kursen måste vara att man har jobbat med twig i design-kursen, php i webbtec-kursen samt kursen objektorgentering med python.</p>
+        <p>Mina förkunskaper inför denna kursen måste vara att man har jobbat med twig i design-kursen, PHP i webtec-kursen samt kursen objektorgentering med python.</p>
 
-            <p>PHPs modeller för klasser och objekt fungerar att man skapar en klass. Till exempel i koden LuckyController så heter klassen LuckyControllerTwig och ärver från klassen AbstractController (extends). I PHP kan man även använda arv men bara till en annan klass.</p>
+            <p>PHPs modeller för klasser och objekt fungerar att man skapar en klass. Till exempel i koden LuckyController så heter klassen LuckyControllerTwig och ärver från klassen AbstractController (extends). I PHP kan man även använda arv men just bara till en annan klass.</p>
             
             <p>I me/report använder jag en blandning av Symfony och Twig. Jag använder en kontrollerclass ("LuckyControllerTwig") och från AbstactController som kommer ifrån Symfony.
             I LuckyControllerTwig.php så skapar jag en Route "/report" som definera ett unikt namn för routern. Jag skapar en länk till report.html.twig. HTML sidan skapas genom twig och symfony när report routern besöks.
             Jag uppfattade en som ett väldigt smidigt sätt att skapa olika vägar då det var inte så avancerat. Läste även att symfony var väldigt populärt att använda och det förstår man.</p>
             
-            <p>Artiklen PHP the right way tyckte jag just för detta kursmomentet nog att biten getting started var viktigast och mest instressant. Men tänkte gå tillbaka i manualen när man känner sig lite vilsen eller behöver söka efter något för nu skollade jag bara igenom resten av manualen.</p>
+            <p>Artiklen PHP the right way tyckte jag just för detta kursmomentet nog att biten getting started var viktigast och mest instressant. Men tänkte gå tillbaka i manualen när man känner sig lite vilsen eller behöver söka efter något för nu skrollade jag bara igenom resten av manualen.</p>
             
             <p>Mitt TIL för detta kursmomentet måste vara grunderna i hur symfony funkar samt hur klasser och objekt förhåller sig till varandra. Samt hur man verkligen förstod vad man håller på med att ska routers och lägga in olika responses.
             roligt att få leka runt och testa de olika funktionerna och se hur det blir på webbklienten.</p>
     </section>
+    <p id="kmom02">
+        <h3>Kmom02</h3>
+        <p>Det används för att organisera och struktuera koden på ett återanvändbart sätt, så man kan skriva "snyggare kod". Arv används för att ärva egenskaper från en annan klass, då blir det att man kan återanvända koden mer. Komposition använder instanser istället för att ärva från klassen. Interface används för att se till så vissa klasser erbjuder samma funktionalitet. Man använder interface-nyckelordet för att implementera en klass. Trait nyckelordet använder man även här innan klassen, det används för att skapa olika metoder för att sedan kunna importera dem i en klass.
+            Dessa sätt hjälper till att strukturera och återvända koden i php.</p>
+            
+            
+            <p>Jag började med att följa Mikaels föreläsnings video för att lära mig strukturen, hur klasserna fungerade samt på ungefär jag skulle ha min hemsida. Jag kunde återanvända en del kod ifrån övningen vilket var skönt. Men det blev otroligt rörigt med klasserna för jag blandade ihop dem lite, jag skapade förmånga olika klasser när jag bara kunde återanvänt eller gjort om dem. Nästa gång ska jag inte lägga in övningskodens klasser direkt, utan att skapa egna klasser utifrån mitt behov. Men det kan vara att man inte riktigt förståd i början utan att tyckte jag lärde mig mycket under tiden jag höll på.</p>
+            
+            
+            <p>Jag kan tycka efter detta kursmomentet att det var lite svårt? Det blev lätt rörigt i vilken klass jag hämtade ifrån men det blir ju smidigare i Routern när man har så lite kod som möjligt. Men det var många krav med så det tog lite tid, Jag hade inte tid att fixa stylingen eller "svengelskan". Annars är ju symfony smidigt att använda tycker jag!</p>
+            
+            
+            <p>Mitt TIL för detta kursmoment måste vara grunderna i hur klasserna funkar, samt hur man kan återanvända koden för att få en snyggare kodstruktur. Jag har lärt mig mycket under detta kursmoment men det är nog för jag har fastnat mycket med. </p>
     <!--Lägg till fler <section> för fler kursmoment samt id -->
 {% endblock %}

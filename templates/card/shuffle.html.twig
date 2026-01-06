@@ -5,9 +5,19 @@
 {% block body %}
 <h1>Shuffle</h1>
 
-<div class="cards">
-    {% for card in cards %}
-        <span>{{ card }}</span>
-    {% endfor %}
-</div>
+<body>
+    <h1>Shuffled Cards:</h1>
+    {% if cards is iterable %}
+        <ul>
+            {% for card_item in cards %}
+                <span class="cards {{ cardColors[card_item] }}">{{ card_item }}</span>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2 class="cards {{ cardColors[cards] }}">{{ cards }}</h2>
+    {% endif %}
+    <h2>Remaining Cards: {{ remaining }}</h2>
+    {# Reload the page to shuffle the deck again #}
+    <button onclick="location.reload();">Shuffle Again</button>
+</body>
 {% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dokumentation - Spel 21{% endblock %}
+
+{% block body %}
+<div class="container" style="margin: 2rem auto; max-width: 800px;">
+    <h1>Dokumentation - Spel 21</h1>
+
+    <div style="margin-bottom: 2rem;">
+        <a href="{{ path('game_home') }}" style="color: #007bff; text-decoration: none;">← Tillbaka till spelet</a>
+    </div>
+
+    <section style="margin-bottom: 2rem;">
+        <h2>Introduktion</h2>
+        <p>
+            Detta dokument beskriver implementationen av kortspelet 21. 
+            Spelet har utvecklats med objektorienterad programmering i PHP tillsammans med Symfony-ramverket.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2>Flödesschema</h2>
+        <p>
+            Flödesschemat visar det grundläggande spelflödet från start till slut. Det visar hur 
+            spelaren och banken interagerar, samt hur vinnaren avgörs.
+        </p>
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="{{ asset('images/schema.png') }}" alt="Flödesschema för spel 21" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px;">
+        </div>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2>Pseudokod</h2>
+        <p>
+            Pseudokoden beskriver logiken för spelet. 
+            Detta visar hur klasserna och metoderna kan se.
+        </p>
+        <h3>Spelflöde</h3>
+        <pre style="background: #f5f5f5; padding: 1rem; border-radius: 5px; border-left: 4px solid #461c56; overflow-x: auto; font-family: 'Courier New', monospace;">
+1. INITIERING (GameController)
+   → ny DeckOfCards() skapar 52 kort
+   → shuffle() blandar korten
+   → ny CardHand() för spelare och bank
+   → Allt sparas i session
+
+2. SPELPLANEN VISAS (GameController)
+   → Hämtar data från session
+   → Renderar play.html.twig
+   → Visar knappar "Dra kort" och "Stanna"
+
+3. SPELAREN DRAR KORT (GameController)
+   → deck.draw() tar sista kortet (array_pop)
+   → playerHand.addCard(card) lägger till i array
+   → playerHand.getTotal() beräknar poäng:
+      Räknar varje kort via getPointValue()
+      Justerar ess från 14 till 1 vid behov
+   → OM total > 21: game_over = true, winner = 'bank'
+
+4. SPELAREN STANNAR (GameController)
+   → MEDAN bankHand.getTotal() < 17:
+      deck.draw()
+      bankHand.addCard(card)
+   → Jämför: playerTotal vs bankTotal
+   → Avgör vinnare (bank vinner vid lika)
+
+5. RESULTAT VISAS (play.html.twig)
+   → game_over = true
+   → Visar båda händernas kort
+   → Visar vinnare
+   → Nytt spel
+        </pre>
+    </section>
+
+
+    <section style="margin-bottom: 2rem;">
+        <h2>Klassstruktur</h2>
+        <p>
+            Spelet är byggt med fyra huvudklasser att skapa spelet.
+        </p>
+        
+        <h3>Card</h3>
+        <p><strong>Syfte:</strong> Representerar ett enskilt spelkort med färg och värde.</p>
+        <p><strong>Ansvar:</strong> Lagrar kortets färg (hjärter, ruter, klöver, spader) och värde (A, 2-10, J, Q, K), samt beräknar kortets poängvärde.</p>
+
+        <h3>CardGraphic</h3>
+        <p><strong>Syfte:</strong> Ärver från Card och lägger till grafisk representation.</p>
+        <p><strong>Ansvar:</strong> Konverterar kort till Unicode-symboler och hanterar färgvisning (röd/svart).</p>
+        <p><strong>Relation:</strong> Ärver från Card (arv)</p>
+
+        <h3>DeckOfCards</h3>
+        <p><strong>Syfte:</strong> Representerar en komplett kortlek med 52 kort.</p>
+        <p><strong>Ansvar:</strong> Skapar kortleken, blandar korten och hanterar dragning av kort från leken.</p>
+        <p><strong>Relation:</strong> Innehåller CardGraphic-objekt (komposition)</p>
+
+        <h3>CardHand</h3>
+        <p><strong>Syfte:</strong> Representerar en spelares eller bankens hand med kort.</p>
+        <p><strong>Ansvar:</strong> Lagrar dragna kort, beräknar totala poäng för handen och hanterar ess-logik (1 eller 14 poäng).</p>
+        <p><strong>Relation:</strong> Innehåller CardGraphic-objekt (komposition)</p>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2>UML Klassdiagram</h2>
+        <p>
+            UML-diagrammet visar relationerna mellan klasserna. Triangelpilen visar arv och diamanten visar komposition.
+        </p>
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="{{ asset('images/uml.png') }}" alt="UML klassdiagram" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; background: white; padding: 1rem;">
+        </div>
+    </section>
+</div>
+{% endblock %}

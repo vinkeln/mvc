@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spel 21{% endblock %}
+
+{% block body %}
+<div class="container" style="margin: 2rem auto; max-width: 800px;">
+    <h1>Välkommen till 21!</h1>
+    
+    <h2>Spelregler</h2>
+    <p>Målet är att komma så nära 21 som möjligt utan att gå över.</p>
+    <ul>
+        <li>Ess är värt 1 eller 14 poäng</li>
+        <li>Klädda kort (Knekt, Dam, Kung) är värda 10 poäng</li>
+        <li>Övriga kort har värde (2-10)</li>
+        <li>Banken måste dra kort tills den har minst 17 poäng</li>
+        <li>Om du får över 21 poäng förlorar du</li>
+        <li>Banken vinner vid lika poäng</li>
+    </ul>
+
+    <h2>Hur spelar man?</h2>
+    <ol>
+        <li>Klicka på "Starta nytt spel"</li>
+        <li>Dra kort genom att klicka "Dra kort"</li>
+        <li>När du är nöjd, klicka "Stanna"</li>
+        <li>Banken drar sina kort</li>
+        <li>Vinnaren visas</li>
+    </ol>
+
+    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="{{ path('game_init') }}" style="display: inline-block; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;">
+            Starta nytt spel
+        </a>
+        <a href="{{ path('game_doc') }}" style="display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+            Se dokumentation
+        </a>
+    </div>
+</div>
+{% endblock %}

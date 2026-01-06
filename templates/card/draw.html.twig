@@ -10,15 +10,14 @@
     {% if card is iterable %}
         <ul>
             {% for card_item in card %}
-                <span class="cards">{{ card_item }}</span>
+                <span class="cards {{ cardColors[card_item] }}">{{ card_item }}</span>
             {% endfor %}
         </ul>
     {% else %}
-        <h2>{{ card }}</h2>
+        <h2 class="cards {{ cardColors[card] }}">{{ card }}</h2>
     {% endif %}
     <h2>Remaining Cards: {{ remaining }}</h2>
-    {#} Reload the page to draw another card #}
+    {# Reload the page to draw another card #}
     <button onclick="location.reload();">Draw Another Card</button>
 </body>
-
 {% endblock %}

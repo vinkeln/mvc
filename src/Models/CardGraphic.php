@@ -15,10 +15,14 @@ class CardGraphic extends Card
         '🃍', '🃎', '🃑', '🃒', '🃓', '🃔', '🃕', '🃖',
         '🃗', '🃘', '🃙', '🃚', '🃛', '🃜', '🃝', '🃞'
     ];
+
+    private $cardColors = [];
+
     //konstruktor för CardGraphic-klassen
     public function __construct()
     {
         parent::__construct();
+        $this->setCardColors();
     }
 
 
@@ -26,6 +30,7 @@ class CardGraphic extends Card
     {
         return shuffle($this->representation);
     }
+
     public function drawCard($number = 1)
     {
         if (!is_array($this->representation)) {
@@ -39,7 +44,7 @@ class CardGraphic extends Card
     {
         shuffle($this->representation);
     }
-    
+
 
     /*public function remainingCards()
     {
@@ -68,5 +73,24 @@ class CardGraphic extends Card
     public function setDeck($deck)
     {
         $this->representation = $deck;
+    }
+
+    public function setCardColors()
+    {
+        $redSuits = ['🂱', '🂲', '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺', '🂻', '🂼', '🂽', '🂾','🃁', '🃂', '🃃', '🃄', '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃌', '🃍', '🃎'];
+        $blackSuits = ['🃑', '🃒', '🃓', '🃔', '🃕', '🃖', '🃗', '🃘', '🃙', '🃚', '🃛', '🃜', '🃝', '🃞','🂡', '🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨', '🂩', '🂪', '🂫', '🂬', '🂭', '🂮'];
+
+        foreach ($this->representation as $card) {
+            if (in_array($card, $redSuits)) {
+                $this->cardColors[$card] = 'red';
+            } else {
+                $this->cardColors[$card] = 'black';
+            }
+        }
+    }
+
+    public function getCardColors(): array
+    {
+        return $this->cardColors;
     }
 }

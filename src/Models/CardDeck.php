@@ -11,27 +11,20 @@ class CardDeck
     public function __construct()
     {
         $this->initializeDeck();
-        
+
     }
     //lägger till korten i en array
     private function initializeDeck()
     {
         $suits = ['♠', '♣', '♥', '♦'];
         $values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-        //$colors = ['red', 'black']; //array med färger
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-
-                if ($suit === '♥' || $suit === '♦') {
-                    $this->cards[] = '<span class="card red">' . $value . $suit . '</span>';
-                }
-                $this->cards[] = '<span class="card black">' . $value . $suit . '</span>';
-
+                $color = ($suit === '♥' || $suit === '♦') ? 'red' : 'black';
+                $this->cards[] = (object) ['value' => $value, 'suit' => $suit, 'color' => $color];
             }
         }
-        //$this->sortdeck();
         return $this->cards;
-        
     }
 
     public function deteminateColor($suit)
@@ -46,7 +39,7 @@ class CardDeck
     {
         usort($this->cards, function ($card1, $card2) { // sortera cards arrayen
             if ($card1->getSuit() === $card2->getSuit()) {
-                // kollar om suit har samma färg, om de har jämförs deras värde 
+                // kollar om suit har samma färg, om de har jämförs deras värde
                 return $card1->getValue() <=> $card2->getValue(); //
             } // Om färgerna på de två korten inte är lika, jämför deras färger
             return $card1->getSuit() <=> $card2->getSuit();
@@ -79,6 +72,11 @@ class CardDeck
     public function getDeck()
     {
         return $this->cards;
+    }
+
+    public function getCardString($card)
+    {
+        return "{$card->value}{$card->suit}"; 
     }
 
 

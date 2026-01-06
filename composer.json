@@ -1,4 +1,5 @@
 {
+    "name": "vendor/mvc-kursen",
     "type": "project",
     "description": "mvc kurs",
     "license": "proprietary",

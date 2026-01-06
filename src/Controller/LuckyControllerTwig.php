@@ -1,13 +1,14 @@
 <?php
+
 // använd denna controller för uppgiften och lägg till de routes som behövs
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use DateTime;
+
 //use Symfony\Component\HttpFoundation\JsonResponse as HttpFoundationJsonResponse;
 
 
@@ -58,7 +59,7 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('report.html.twig');
     }
 
-    #[Route("/api", name: "api")]
+    /*#[Route("/api", name: "api")]
     public function api(): Response // Uppdaterad returtyp
     {
         $api = [
@@ -67,7 +68,7 @@ class LuckyControllerTwig extends AbstractController
             'description' => 'Get a random quote'
         ],
     ];
-    return $this->render('api.html.twig', ['api' => $api]);
+        return $this->render('api.html.twig', ['api' => $api]);
     }
 
     #[Route("/api/quote", name: "api_quote")]
@@ -90,12 +91,13 @@ class LuckyControllerTwig extends AbstractController
             'date' => $date,
             'today' => $today
         ];
-                // return new JsonResponse($data);
+        // return new JsonResponse($data);
 
-                $response = new JsonResponse($data);
-                $response->setEncodingOptions(
-                    $response->getEncodingOptions() | JSON_PRETTY_PRINT
-                );
-                return $response;
-    }
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }*/
+
 }

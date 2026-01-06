@@ -11,6 +11,8 @@ header {
 main {
     margin: 0 auto;
     max-width: 400px;
+    padding: 20px;
+    padding-bottom: 50px;
 }
 
 h1 {
@@ -22,7 +24,7 @@ p {
 }
 
 footer {
-    position: static;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #b893cc;
@@ -65,3 +67,230 @@ nav ul li {
     font-style: italic;
     margin-top: 20px;
 }
+/*
+* kmom02
+*/
+/*
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #eee;
+    font-size: 2em;
+}*/
+
+input {
+    font-size: 1em;
+}
+
+h1 {
+    border-bottom: 4px double #461c56;
+}
+
+.die {
+    font-size: 2em;
+}
+
+ul.dicearea {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.dicearea li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}
+
+.cards {
+    font-size: 3em;
+}
+
+img.diagram {
+    width: 20em;
+    height: 20em;
+}
+
+img[alt="Symfony med PHP"] {
+    width: 1,5em;
+    height: 1,5em;
+}
+
+
+.red {
+    color: #F00;
+}
+
+.black {
+    color: #000;
+}
+
+.card {
+    border: 1px solid #000;
+}
+
+.blackjack-container {
+    margin: 2rem auto;
+    max-width: 900px;
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Bank och spelare */
+.bank-area,
+.player-area {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.bank-area {
+    background: #f8f9fa;
+}
+
+.player-area {
+    background: #e3f2fd;
+}
+
+.bank-area h2,
+.player-area h2 {
+    margin-top: 0;
+}
+
+/* Kort */
+.card-display {
+    font-size: 3rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.card-red {
+    color: #dc3545;
+}
+
+.card-black {
+    color: #000;
+}
+
+.card-hidden {
+    opacity: 0.3;
+}
+
+/* Resultat */
+.result-area {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.result-win {
+    background: #d4edda;
+}
+
+.result-lose {
+    background: #f8d7da;
+}
+
+.result-area h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.result-area p {
+    margin: 1rem 0;
+}
+
+/* Knappar */
+.game-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-draw {
+    padding: 12px 24px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.btn-draw:hover {
+    background: #218838;
+}
+
+.btn-stand {
+    padding: 12px 24px;
+    background: #ffc107;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.btn-stand:hover {
+    background: #e0a800;
+}
+
+.btn-new-game {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.btn-new-game:hover {
+    background: #218838;
+}
+
+/* Info text */
+.deck-info {
+    text-align: center;
+    color: #666;
+}
+
+.back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+
