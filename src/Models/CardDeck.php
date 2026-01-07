@@ -76,7 +76,7 @@ class CardDeck
 
     public function getCardString($card)
     {
-        return "{$card->value}{$card->suit}"; 
+        return "{$card->value}{$card->suit}";
     }
 
 

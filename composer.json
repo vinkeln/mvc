@@ -58,7 +58,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Mos\\": "src/"
         }
     },
     "autoload-dev": {
@@ -79,6 +80,14 @@
     "scripts": {
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+        "phpstan": "vendor/bin/phpstan analyze src --level 8",
+        "phpmd": "vendor/bin/phpmd src text phpmd.xml",
+        "lint": [
+            "@phpstan",
+            "@phpmd"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
@@ -102,6 +111,8 @@
         }
     },
     "require-dev": {
+        "phpmd/phpmd": "^2.15",
+        "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "7.0.*",
         "symfony/css-selector": "7.0.*",

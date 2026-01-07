@@ -9,12 +9,12 @@ class Card
     protected $value;
     protected $suit;
     protected $color;
-    
+
 
 
     public function __construct()
     {
-        
+
     }
 
     public function getAsString(): string

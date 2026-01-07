@@ -63,23 +63,23 @@ class CardController extends AbstractController
         ]);
     }*/
 
-// src/Controller/CardController.php
-#[Route("/card/deck/shuffle", name: "card_shuffle", methods: ['GET','POST'])]
-public function shuffle(SessionInterface $session, CardGraphic $cardGraphic): Response
-{
-    $card = $cardGraphic->getCards();
-    if (empty($card)) {
-        $cardGraphic->shuffleCards();
+    // src/Controller/CardController.php
+    #[Route("/card/deck/shuffle", name: "card_shuffle", methods: ['GET','POST'])]
+    public function shuffle(SessionInterface $session, CardGraphic $cardGraphic): Response
+    {
         $card = $cardGraphic->getCards();
+        if (empty($card)) {
+            $cardGraphic->shuffleCards();
+            $card = $cardGraphic->getCards();
+        }
+        shuffle($card); //blandar korten
+        $session->set('deck', $card);
+        return $this->render('card/shuffle.html.twig', [
+            'cards' => $card,
+            'remaining' => count($card),
+            'cardColors' => $cardGraphic->getCardColors()
+        ]);
     }
-    shuffle($card); //blandar korten
-    $session->set('deck', $card);
-    return $this->render('card/shuffle.html.twig', [
-        'cards' => $card,
-        'remaining' => count($card),
-        'cardColors' => $cardGraphic->getCardColors()
-    ]);
-}
 
     // Skapa en sida card/draw som drar ett kort från kortleken och visar det.
     #[Route("/card/deck/draw/{number}", name: "card_draw", requirements: ['number' => '\d+'], methods: ['GET','POST'])]

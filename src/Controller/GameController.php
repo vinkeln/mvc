@@ -1,5 +1,7 @@
 <?php
+
 // blackjack spel controller
+
 namespace App\Controller;
 
 use App\Blackjack\CardHand;

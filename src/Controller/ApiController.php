@@ -119,7 +119,7 @@ class ApiController extends AbstractController
             '🃍', '🃎', '🃑', '🃒', '🃓', '🃔', '🃕', '🃖',
             '🃗', '🃘', '🃙', '🃚', '🃛', '🃜', '🃝', '🃞'
         ]);
-    
+
         if (count($deck) === 52) {
             shuffle($deck);
         }
