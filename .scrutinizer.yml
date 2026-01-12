@@ -1,0 +1,30 @@
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    
+        tests:
+            dependencies:
+                override:
+                    - composer install --no-interaction --prefer-dist
+            tests:
+                override:
+                    - command: vendor/bin/phpunit --coverage-clover=coverage.clover
+                      coverage:
+                          file: coverage.clover
+                          format: clover
+
+filter:
+    excluded_paths:
+        - 'vendor/*'
+        - 'tests/*'
+        - 'migrations/*'
+        - 'var/*'
+        - 'public/*'
+        - 'node_modules/*'
+        - 'tools/*'
+
+checks:
+    php: true
