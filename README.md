@@ -5,6 +5,13 @@ Detta är min webbsida skapad symfony. Här kommer jag ladda upp delar av kursmo
 <img src="public/images/elefant.png" alt="Symfony med PHP" width="250" height="200">
 -------
 
+## Badgets
+- Dessa gick inte igenom då verktyget scrutinizer hande problem med deras byggmiljö php 8.2
+[![Build Status](https://scrutinizer-ci.com/g/vinkeln/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/vinkeln/mvc/)
+[![Code Coverage](https://scrutinizer-ci.com/g/vinkeln/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/vinkeln/mvc/)
+[![Quality Score](https://scrutinizer-ci.com/g/vinkeln/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/vinkeln/mvc/)
+
+
 ## Introduktion
 
 I denna kursen kommer jag jobba med PHP-ramverket Symfony

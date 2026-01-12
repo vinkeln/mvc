@@ -1,0 +1,242 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics Analysis{% endblock %}
+
+{% block body %}
+<style>
+    /* metrics style för att inte använda app.css max-width */
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+</style>
+
+<h1>Metrics Analys</h1>
+
+<section style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+    <h2>Introduktion</h2>
+    <p>Kodkvalitet är en viktig del avmjukvaruutveckling. Det bidrar till flera viktiga fördelar både indviduellt och i teams. Här analyserar jag min kod enligt de "6 C:na":</p>
+
+    <h3>De sex C:na (6C)</h3>
+    
+    <div style="background: white; padding: 1.5rem;">
+        <h4>1. Codestyle</h4>
+        <p><strong>Definition:</strong> Kod ska vara lätt för dig och för andra att kunna förstå, följa upp och underhålla. Vilket bidrar till en enklare utvecklingsprocess.
+        Det är riktlinjer för hur en kod bör ser ut, inklusive namngivning och strukturering.</p>
+        <p><strong>I min kod:</strong> Jag använder PHP-CS-Fixer för att säkerställa en kodstil enligt PSR-12 och dess standard.</p>
+    </div>
+
+    <div style="background: white; padding: 1.5rem;">
+        <h4>2. Coverage (Kodtäckning)</h4>
+        <p><strong>Definition:</strong> En andel kod som täcks av automatiserade tester. Dessa tester täcker kvalite, funktioner, otäckta kodrader och mer.
+        Det finns både hög och låg täckning. Högre täckning leder oftast till färre buggar eftersom det är mer kod som testas.</p>
+        <p><strong>I min kod:</strong> Min Blackjack modul är det en 98% kodtäckning, men för tillfället har Library modulen saknas tester.</p>
+    </div>
+
+    <div style="background: white; padding: 1.5rem;">
+        <h4>3. Complexity (Komplexitet)</h4>
+        <p><strong>Definition:</strong> Hur svår koden är att förstå och underhålla, mätt med cyklomatisk komplexitet.
+        Det är viktigt att mäta och hantera kodens komplexitet för att kunna utveckal kodkvaliteten och underhållbarheten.</p>
+        <p><strong>I min kod:</strong> Genomsnittlig 'cyklomatisk komplexitet' per klass är <strong>3.93</strong>.</p>
+    </div>
+
+    <div style="background: white; padding: 1.5rem;">
+            <h4>4. Cohesion (Sammanhållning)</h4>
+        <p><strong>Definition:</strong> Hur väl en klass fokuserar på en enda uppgift inom en enskild kod modul såsom en funktion eller klass.
+        Hög sammanhållning bidrar till att moduler eller komponenter utför specifika funktioner bättre och blir lättare att förstå, testa och modifiera.</p>
+        <p><strong>I min kod:</strong>  Min LCOM (Lack of Cohesion of Methods) är <strong>1.48</strong>.Det rekommenderas att vara under 1.</p>
+    </div>
+
+    <div style="background: white; padding: 1.5rem;">
+        <h4>5. Coupling (Koppling)</h4>
+        <p><strong>Definition:</strong> Hur beroende klasser är av varandra. Om en modul modifierar en annan kod modul eller dessa moduler är mer självständiga.
+        Det finns både hög och låg koppling. En lägre koppling innebär att förändringar i en modul eller komponent medför en mindre riks för att behöva ändra i en annan.</p>
+        <p><strong>I min kod:</strong> Genomsnittlig instabilitet är 0.6, vilket betyder att klasserna är ganska kopplade med varandra.</p>
+    </div>
+
+    <div style="background: white; padding: 1.5rem;">
+        <h4>6. CRAP (Change Risk Anti-Patterns)</h4>
+        <p><strong>Definition:</strong> Är att kombinerar komplexitet och kodtäckning för att hitta riskfylld kod.
+         Ett högt värde indikerar på hög risk, antingen på grund av koden är dåligt testad eller komplex. Lågt Crap Score innebär att koden är väl testad eller inte komplex, vilket bidrar till en minskad risken vid kodförändringar.</p>
+        <p>CRAP = complexity² × (1 - coverage)³ + complexity</p>
+        <p><strong>I min kod:</strong> Koden har lågt CRAP-värde, detta beror nog på att det är otestad kod som ger höga värden.</p>
+    </div>
+</section>
+
+<section style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+    <h2>Phpmetrics</h2>
+    <p>Phpmetrics visualiserar mätvärden som anger och indikera en viss nivå av kvalitet på koden. Mätvärderna blir analyserade för att hitta flaskhalsar och svaga punkter, med förbättringspotential i koden</p>
+    <p>
+        <a href="{{ asset('metrics-report/index.html') }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            Phpmetrics Rapport
+        </a>
+        <p style="margin-top: 1.5rem;">
+            <img src="{{ asset('images/metrics.png') }}" alt="Phpmetrics Maintainability/Complexity Graf" style="max-width: 100%; border: 1px solid #ddd; border-radius: 5px;">
+        </p>
+        <p><em>Figur: Maintainability och Complexity från phpmetrics. Varje cirkel representerar en klass. Stora röda cirklar visar på kod som är svår att underhålla.</em></p>
+    </p>
+
+    <h3>Översikt av mätvärden</h3>
+    <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white;">
+        <thead>
+            <tr style="background: #34495e; color: white;">
+                <th style="border: 1px solid #ddd; padding: 0.75rem; text-align: left;">Mätvärde</th>
+                <th style="border: 1px solid #ddd; padding: 0.75rem; text-align: left;">Värde</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Rader av kod</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>1469</strong></td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Logiska rader av kod</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>1073</strong></td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Genomsnittlig cyklomatisk komplexitet</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>3.93</strong> (Bra - under 5)</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Genomsnittlig LCOM (Sammanhållning)</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>1.48</strong> (Kan förbättras)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Genomsnittlig instabilitet</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>0.6</strong> (Ganska högt)</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Errors</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>3</strong></td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;">Warnings</td>
+                <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>8</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Phpmetrics Rapport</h3>
+
+    <h4>Flaskhals 1: Låg kodtäckning i Library modulen</h4>
+    <p><strong>Problem:</strong> Just nu har Library modulen 0% kodtäckning.</p>
+    <p><strong>Koppling till 6C:</strong> Låg <strong>Coverage</strong> leder till högre CRAP värden.</p>
+
+    <h4>Flaskhals 2: Hög komplexitet i controller metoder</h4>
+    <p><strong>Problem:</strong> Vissa metoder har för mycket logik.</p>
+    <p><strong>Koppling till 6C:</strong> Hög <strong>Complexity</strong> och dålig <strong>Cohesion</strong>.</p>
+
+    <h4>Flaskhals 3: Violations - 3 errors och 8 warnings</h4>
+    <p><strong>Problem:</strong> Code smells och potentiella buggar.</p>
+    <p><strong>Koppling till 6C:</strong> Påverkar <strong>Codestyle</strong> och dess principer.</p>
+</section>
+
+<section style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+    <h2>Scrutinizer</h2>
+    <p>Scrutinizer kunde inte konfigureras på grund av  begränsningar i byggmiljön.</p>
+    <div style="margin: 1rem 0;">
+        <a href="https://scrutinizer-ci.com/g/vinkeln/mvc/" target="_blank">
+            <img src="https://scrutinizer-ci.com/g/vinkeln/mvc/badges/build.png?b=main" alt="Build Status" style="margin-right: 0.5rem;">
+        </a>
+        <a href="https://scrutinizer-ci.com/g/vinkeln/mvc/" target="_blank">
+            <img src="https://scrutinizer-ci.com/g/vinkeln/mvc/badges/coverage.png?b=main" alt="Code Coverage" style="margin-right: 0.5rem;">
+        </a>
+        <a href="https://scrutinizer-ci.com/g/vinkeln/mvc/" target="_blank">
+            <img src="https://scrutinizer-ci.com/g/vinkeln/mvc/badges/quality-score.png?b=main" alt="Quality">
+        </a>
+    </div>
+
+    <h3>Analys av Scrutinizer rapport</h3>
+
+    <h4>Finding 1: Code Coverage är låg</h4>
+    <p><strong>Problem:</strong> Endast Blackjack-modulen har tester (98%). Library modulen saknar tester helt.</p>
+    <p><strong>Koppling till 6C:</strong> Låg <strong>Coverage</strong> ger höga <strong>CRAP</strong> värden.</p>
+
+    <h4>Finding 2: Komplexitet i controllers</h4>
+    <p><strong>Problem:</strong> Vissa controller metoder har för mycket logik och hög komplexitet.</p>
+    <p><strong>Koppling till 6C:</strong> Hög <strong>Complexity</strong> och dålig <strong>Cohesion</strong>.</p>
+
+    <h4>Finding 3: Code smells från phpmetrics</h4>
+    <p><strong>Problem:</strong> 3 errors och 8 warnings indikerar duplicerad kod och oanvända variabler.</p>
+    <p><strong>Koppling till 6C:</strong> Påverkar <strong>Codestyle</strong> och <strong>Coupling</strong>.</p>
+</section>
+
+<section style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+    <h2>Förbättringar</h2>
+
+    <h3>Planerade förbättringar och genomförda åtgärder</h3>
+
+        <h4>Förbättring 1: Uppdatering av LibraryController</h4>
+    <p><strong>Mål:</strong> Minska komplexiteten och göra koden mer läsbar.</p>
+    <ul>
+        <li>Metoder refaktorades för att minska inbäddade if satser och loopar. Minimera koden i controller och utökade funktionaliteten i en ny fil.</li>
+        <li>Cyclomatic Complexity minskade från 7 till 2.</li>
+        <li>Maintainability Index ökade från 60.4 till 69.08.</li>
+    </ul>
+
+    <h4>Förbättring 2: Förenkling av Dice klassen</h4>
+    <p><strong>Mål:</strong> Gör Dice klassen mer fokuserad och lättare att underhålla.</p>
+    <ul>
+        <li>Dice-klassen fick enklare metoder med tydlig ansvarsfördelning.</li>
+        <li>Ledde till en ökning Cyclomatic Complexity från 1 till 2 och Maintainability Index från 59.89 till 99.93.</li>
+    </ul>
+
+    <h4>Förbättring 3: Förenkling av DiceGraphic</h4>
+    <p><strong>Mål:</strong> Göra Dice och DiceGraphic mer enhetliga, lättare att underhålla och enklare att utöka.</p>
+    <ul>
+        <li>DiceGraphic använder nu arv korrekt och logik för representation separerades från själva tärningsvärdet.</li>
+        <li>Detta ökade Maintainability Index för DiceGraphic: 94.48 och minskade Cyclomatic Complexity.</li>
+    </ul>
+
+
+    <h4>Analys av resultat</h4>
+    <p>Efter genomförda förbättringar visar rapporterna från phpmetrics tydligt att code quality har förbättrats:</p>
+    <ul>
+        <li><strong>LibraryController:</strong> Cyclomatic Complexity 7 → 2, Maintainability Index 60.4 → 69.08</li>
+        <li><strong>Dice:</strong> Cyclomatic Complexity 1 → 2, Maintainability Index 59.89 → 99.93</li>
+        <li><strong>DiceGraphic:</strong> Cyclomatic Complexity 1 → 5, Maintainability Index 64.62 → 94.48</li>
+    </ul>
+    <p>Dessa förbättringar gör koden enklare att förstå, testa och underhålla, genom refaktoreringarna. Dice och DiceGraphic ville jag försöka
+        ge mer förbättringar, då dessa filer har vi inte jobbat med särskilt mycket, vilket kunde ge mer potential för förbättringar.
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+            <img src="{{ asset('images/metrics2.png') }}" alt="Phpmetrics Maintainability/Complexity Graf" style="max-width: 100%; border: 1px solid #ddd; border-radius: 5px;">
+        </p>
+        <p><em>Figur: Maintainability och Complexity från phpmetrics. Här visas en förättring på de förändrande filerna, men också fler filer.</em></p>
+</section>
+
+<section style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+    <h2>Diskussion</h2>
+
+    <h3>Kan man jobba med kodkvalitet på detta sättet?</h3>
+    <p>Ja! Metrics ger objektiva mål. Det är lättare att säga "minska komplexitet från 8 till 4" än "förbättra koden". Med en bra kodkvalitet man man få många fördelar.
+        Det bidrar till en ren och underhållbar kod, vilket minskar tid för förändringar och buggar. Det hjälper också team att hålla en gemensam standard.
+    </p>
+
+    <h3>Fördelar</h3>
+    <ul>
+        <li><strong>Objektiva mätvärden</strong> - Fakta, inte åsikter</li>
+        <li><strong>Automatisering</strong> - Körs vid varje push</li>
+        <li><strong>Tydliga mål</strong> - Konkreta förbättringsmål</li>
+        <li><strong>Hittar dolda problem</strong> - Ser saker människor missar</li>
+    </ul>
+
+    <h3>Nackdelar</h3>
+    <ul>
+        <li><strong>100% coverage är inte samma smom bugfri kod</strong> - Tester kan vara dåliga</li>
+        <li><strong>Fokus på fel saker</strong> - Kan bli för sifferfokuserad</li>
+    </ul>
+
+    <h3>Andra möjligheter till clean code</h3> 
+    <ul>
+        <li><strong>Code Review</strong> - Människor ser logiska fel</li>
+        <li><strong>Jobba i par</strong> - Två hjärnor är bättre än en, och leder ofta till diskussioner som förbättrar koden</li>
+        <li><strong>Refactoring</strong> - Kontinuerlig förbättring</li>
+    </ul>
+
+    <h3>Slutsats</h3>
+    <p>Metrics är ett bra sätt till en bättre kodkvalitet. Kombinera automatiserade verktyg med manuell granskning och diskussioner för bästa resultat.</p>
+</section>
+{% endblock %}

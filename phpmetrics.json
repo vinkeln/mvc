@@ -1,0 +1,14 @@
+{
+    "report": {
+        "html": "docs/metrics"
+    },
+    "includes": {
+        "directory": "src"
+    },
+    "excludes": [
+        "tests",
+        "vendor"
+    ],
+    "git": "https://github.com/vinkeln/mvc",
+    "junit": "docs/junit.xml"
+}

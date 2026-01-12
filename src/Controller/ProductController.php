@@ -8,9 +8,15 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
+use App\Service\ProductService;
+
 
 final class ProductController extends AbstractController
 {
+      public function __construct(private ProductService $productService)
+    {
+    }
+
     #[Route('/product', name: 'app_product')]
     public function index(): Response
     {
@@ -20,123 +26,71 @@ final class ProductController extends AbstractController
     }
 
     #[Route('/product/create', name: 'product_create')]
-    public function createProduct(
-        ManagerRegistry $doctrine
-    ): Response {
-        $entityManager = $doctrine->getManager();
-
-        $product = new Product();
-        $product->setName('Keyboard_num_' . rand(1, 9));
-        $product->setValue(rand(100, 999));
-
-        // tell Doctrine you want to (eventually) save the Product
-        // (no queries yet)
-        $entityManager->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
+    public function create(): Response
+    {
+        $product = $this->productService->createRandomProduct();
 
         return new Response('Saved new product with id '.$product->getId());
     }
 
     #[Route('/product/show', name: 'product_show_all')]
-    public function showAllProduct(
-        ProductRepository $productRepository
-    ): Response {
-        $products = $productRepository->findAll();
-
-        $response = $this->json($products);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
+    public function showAll(): Response
+    {
+        return $this->jsonPretty($this->productService->getAllProducts());
     }
 
     #[Route('/product/show/{id}', name: 'product_by_id')]
-    public function showProductById(
-        ProductRepository $productRepository,
-        int $id
-    ): Response {
-        $product = $productRepository->find($id);
-
-        return $this->json($product);
+    public function showById(int $id): Response
+    {
+        $product = $this->productService->getProductOrFail($id);
+        return $this->jsonPretty($product);
     }
 
     #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
-    public function deleteProductById(
-        ManagerRegistry $doctrine,
-        int $id
-    ): Response {
-        $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
-
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $entityManager->remove($product);
-        $entityManager->flush();
-
+    public function delete(int $id): Response
+    {
+        $this->productService->deleteProduct($id);
         return $this->redirectToRoute('product_show_all');
     }
 
     #[Route('/product/update/{id}/{value}', name: 'product_update')]
-    public function updateProduct(
-        ManagerRegistry $doctrine,
-        int $id,
-        int $value
-    ): Response {
-        $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
-
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $product->setValue($value);
-        $entityManager->flush();
-
+    public function update(int $id, int $value): Response
+    {
+        $this->productService->updateProductValue($id, $value);
         return $this->redirectToRoute('product_show_all');
     }
 
     #[Route('/product/view', name: 'product_view_all')]
-    public function viewAllProduct(
-        ProductRepository $productRepository
-    ): Response {
-        $products = $productRepository->findAll();
-
-        $data = [
-            'products' => $products
-        ];
-
-        return $this->render('product/view.html.twig', $data);
+    public function viewAll(ProductRepository $repo): Response
+    {
+        return $this->render('product/view.html.twig', [
+            'products' => $repo->findAll()
+        ]);
     }
 
     #[Route('/product/view/{value}', name: 'product_view_minimum_value')]
-    public function viewProductWithMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue($value);
-
-        $data = [
-            'products' => $products
-        ];
-
-        return $this->render('product/view.html.twig', $data);
+    public function viewMinValue(ProductRepository $repo, int $value): Response
+    {
+        return $this->render('product/view.html.twig', [
+            'products' => $repo->findByMinimumValue($value)
+        ]);
     }
 
     #[Route('/product/show/min/{value}', name: 'product_by_min_value')]
-    public function showProductByMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue2($value);
+    public function showMinValue(ProductRepository $repo, int $value): Response
+    {
+        return $this->jsonPretty($repo->findByMinimumValue2($value));
+    }
 
-        return $this->json($products);
+    /**
+     * Hjälpmetod för JSON med pretty print
+     */
+    private function jsonPretty(array|object $data): Response
+    {
+        $response = $this->json($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }
