@@ -1,4 +1,5 @@
-
+/* Library styles */
+@import 'library.css';
 header {
     height: 200px;
     color: #461c56;

@@ -1,0 +1,210 @@
+/* Library Container */
+.library-container {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.library-container-narrow {
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 0 1rem;
+}
+
+.library-container-medium {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Buttons */
+.btn-library {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: black;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-library:hover {
+    opacity: 0.9;
+}
+
+/* Quick Links */
+.quick-links {
+    margin: 2rem 0;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin: 1rem 0;
+}
+
+/* Forms */
+.library-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+}
+
+/* Table */
+.library-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.library-table thead tr {
+    background: #f8f9fa;
+}
+
+.library-table th,
+.library-table td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+.library-table img {
+    width: 50px;
+    height: auto;
+}
+
+/* Book Details */
+.book-details {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.book-cover img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.book-info p {
+    margin: 0.5rem 0;
+}
+
+.book-actions {
+    margin-top: 2rem;
+}
+
+/* Links */
+.library-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.library-link:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+/* Inline Form (for delete button) */
+.inline-form {
+    display: inline;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: inherit;
+    padding: 0;
+}
+
+.link-button:hover {
+    color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .book-details {
+        flex-direction: column;
+    }
+    
+    .book-cover img {
+        max-width: 100%;
+    }
+
+    .library-table {
+        font-size: 0.9rem;
+    }
+
+    .library-table th,
+    .library-table td {
+        padding: 0.5rem;
+    }
+}

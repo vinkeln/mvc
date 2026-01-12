@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Products{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Products</h1>
+    
+    <ul>
+        {% for product in products %}
+            <li>{{ product.getName|e }} ({{ product.getId|e }}) - Value: {{ product.getValue|e }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{{ path('app_product') }}">Back to index</a></p>
+</div>
+{% endblock %}

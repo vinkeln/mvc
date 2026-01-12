@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ book.title }}{% endblock %}
+
+{% block body %}
+<div class="library-container-narrow">
+    <h1>Redigera</h1>
+
+    <form method="POST" action="{{ path('library_update_post', {id: book.id}) }}" class="library-form">
+        <div class="form-group">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" value="{{ book.title }}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="author">Författare:</label>
+            <input type="text" id="author" name="author" value="{{ book.author }}" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Bild URL:</label>
+            <input type="text" id="image" name="image" value="{{ book.image }}" required class="form-control">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-library btn-primary">
+                Uppdatera bok
+            </button>
+            <a href="{{ path('library_show_one', {id: book.id}) }}" class="btn-library btn-secondary">
+                Avbryt
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

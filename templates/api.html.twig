@@ -7,14 +7,18 @@
     <p>Welcome to the API Index page.</p>
     <div>
         <p><a href="{{ path('api_quote') }}">Quote</a></p>
-        <p>Please click and you will be granted a beautiful quote</p>
+        <p>Please click and you will be granted a beautiful quote.</p>
         <p><a href="{{ path('api_deck') }}">Deck</a></p>
-        <p>Click here to get a deck of cards</p>
+        <p>Click here to get a deck of cards.</p>
         <p><a href="{{ path('api_deck_shuffle') }}">Shuffle</a></p>
-        <p>Click here to shuffle the deck</p>
+        <p>Click here to shuffle the deck.</p>
         <p><a href="{{ path('api_deck_draw') }}">Draw</a></p>
-        <p>Click here to draw a card from the deck</p>
+        <p>Click here to draw a card from the deck.</p>
          <p><a href="{{ path('api_game') }}">Game</a></p>
             <p>Get current game state for 21.</p>
+        <p><a href="{{ path('api_library_books') }}">Library Books</a></p>
+            <p>Get all books in the library.</p>
+        <p><a href="{{ path('api_library_book_by_isbn', {isbn: '978-0439708180'}) }}">Library Book by ISBN</a></p>
+            <p>Get a specific book by ISBN. [Harry-Potter]</p>
     </div>
 {% endblock %}

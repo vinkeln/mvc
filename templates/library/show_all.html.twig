@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Books{% endblock %}
+
+{% block body %}
+<div class="library-container">
+    <h1>Alla böcker</h1>
+
+    <p>
+        <a href="{{ path('library_create') }}" class="btn-library btn-success btn-small">
+            Lägg till en ny bok
+        </a>
+    </p>
+
+    <table class="library-table">
+        <thead>
+            <tr>
+                <th>Bild</th>
+                <th>Titel</th>
+                <th>Författare</th>
+                <th>ISBN</th>
+                <th>Åtgärder</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>
+                    <img src="{{ book.image }}" alt="{{ book.title }}">
+                </td>
+                <td>
+                    <a href="{{ path('library_show_one', {id: book.id}) }}" class="library-link">
+                        {{ book.title }}
+                    </a>
+                </td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>
+                    <a href="{{ path('library_update', {id: book.id}) }}" class="library-link">Redigera</a>
+                    |
+                    <form method="POST" action="{{ path('library_delete', {id: book.id}) }}" class="inline-form" onsubmit="return confirm('Are you sure?');">
+                        <button type="submit" class="link-button">Radera</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="back-link">
+        <a href="{{ path('library') }}" class="library-link">← Tillbaka till biblioteket</a>
+    </p>
+</div>
+{% endblock %}

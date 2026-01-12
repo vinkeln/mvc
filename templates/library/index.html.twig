@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<div class="library-container">
+    <h1>Library</h1>
+    
+    <p>Hantera och se över ditt bibliotek av böcker här.</p>
+
+    <div class="quick-links">
+        <ul>
+            <li>
+                <a href="{{ path('library_show_all') }}" class="btn-library btn-primary">
+                    Se alla böcker
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('library_create') }}" class="btn-library btn-success">
+                    Lägg till en ny bok
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('library_reset') }}" class="btn-library btn-warning">
+                    Återställ biblioteket
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

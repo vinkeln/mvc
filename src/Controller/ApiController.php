@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use DateTime;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\BookRepository;
 
 class ApiController extends AbstractController
 {
@@ -161,7 +162,7 @@ class ApiController extends AbstractController
             ];
         }
 
-        // Konvertera bankhanden till array
+        // Bank handen till array
         $bankCards = [];
         foreach ($bankHand->getCards() as $card) {
             $bankCards[] = [
@@ -196,6 +197,52 @@ class ApiController extends AbstractController
         ];
 
         $response = new JsonResponse($gameState);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route('/api/library/books', name: 'api_library_books', methods: ['GET'])]
+    public function getAllBooks(BookRepository $bookRepository): JsonResponse
+    {
+        $books = $bookRepository->findAll();
+
+        $booksData = array_map(function ($book) {
+            return [
+                'id' => $book->getId(),
+                'title' => $book->getTitle(),
+                'isbn' => $book->getIsbn(),
+                'author' => $book->getAuthor(),
+                'image' => $book->getImage()
+            ];
+        }, $books);
+
+        $response = new JsonResponse($booksData);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route('/api/library/book/{isbn}', name: 'api_library_book_by_isbn', methods: ['GET'])]
+    public function getBookByIsbn(BookRepository $bookRepository, string $isbn): JsonResponse
+    {
+        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
+
+        if (!$book) {
+            return new JsonResponse(['error' => 'Book not found'], 404);
+        }
+
+        $bookData = [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'isbn' => $book->getIsbn(),
+            'author' => $book->getAuthor(),
+            'image' => $book->getImage()
+        ];
+
+        $response = new JsonResponse($bookData);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );

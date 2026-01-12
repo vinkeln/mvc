@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Book{% endblock %}
+
+{% block body %}
+<div class="library-container-narrow">
+    <h1>Lägg till en bok</h1>
+
+    <form method="POST" action="{{ path('library_create_post') }}" class="library-form">
+        <div class="form-group">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="author">Författare:</label>
+            <input type="text" id="author" name="author" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Bild URL:</label>
+            <input type="text" id="image" name="image" required class="form-control">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-library btn-success">
+                Spara
+            </button>
+            <a href="{{ path('library_show_all') }}" class="btn-library btn-secondary">
+                Avbryt
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mos\Guess;
+namespace App\Guess;
 
 /**
  * Guess my number, a class supporting the game through GET, POST and SESSION.
