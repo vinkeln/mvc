@@ -8,7 +8,7 @@ build:
         tests:
             dependencies:
                 override:
-                    - composer install --no-interaction --prefer-dist
+                    - composer install --no-interaction --prefer-dist --ignore-platform-reqs
             tests:
                 override:
                     - command: vendor/bin/phpunit --coverage-clover=coverage.clover
@@ -25,6 +25,9 @@ filter:
         - 'public/*'
         - 'node_modules/*'
         - 'tools/*'
+        - 'src/Guess/*'
 
 checks:
-    php: true
+    php:
+        code_rating: true
+        duplication: true
