@@ -1,21 +1,3 @@
-build:
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
-                    
-        tests:
-            dependencies:
-                override:
-                    - composer install --no-interaction --prefer-dist --ignore-platform-reqs
-            tests:
-                override:
-                    - command: vendor/bin/phpunit --coverage-clover=coverage.clover
-                      coverage:
-                          file: coverage.clover
-                          format: clover
-
 filter:
     excluded_paths:
         - 'vendor/*'
@@ -31,3 +13,16 @@ checks:
     php:
         code_rating: true
         duplication: true
+
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
