@@ -316,45 +316,50 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_index"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AcreateBook\u0028\u0029",
-            "name": "createBook",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_createBook"
+            "url": "classes/App-Controller-LibraryController.html#method_create"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AcreateBookPost\u0028\u0029",
-            "name": "createBookPost",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AcreatePost\u0028\u0029",
+            "name": "createPost",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_createBookPost"
+            "url": "classes/App-Controller-LibraryController.html#method_createPost"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AshowAllBooks\u0028\u0029",
-            "name": "showAllBooks",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AshowAll\u0028\u0029",
+            "name": "showAll",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_showAllBooks"
+            "url": "classes/App-Controller-LibraryController.html#method_showAll"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AshowOneBook\u0028\u0029",
-            "name": "showOneBook",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AshowOne\u0028\u0029",
+            "name": "showOne",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_showOneBook"
+            "url": "classes/App-Controller-LibraryController.html#method_showOne"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AupdateBook\u0028\u0029",
-            "name": "updateBook",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_updateBook"
+            "url": "classes/App-Controller-LibraryController.html#method_update"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AupdateBookPost\u0028\u0029",
-            "name": "updateBookPost",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AupdatePost\u0028\u0029",
+            "name": "updatePost",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_updateBookPost"
+            "url": "classes/App-Controller-LibraryController.html#method_updatePost"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AdeleteBook\u0028\u0029",
-            "name": "deleteBook",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_deleteBook"
+            "url": "classes/App-Controller-LibraryController.html#method_delete"
         },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AresetLibrary\u0028\u0029",
-            "name": "resetLibrary",
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
             "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_resetLibrary"
+            "url": "classes/App-Controller-LibraryController.html#method_reset"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AgetBookOr404\u0028\u0029",
+            "name": "getBookOr404",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_getBookOr404"
         },                {
             "fqsen": "\\App\\Controller\\LuckyController",
             "name": "LuckyController",
@@ -401,80 +406,105 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html#method_index"
+        },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
             "summary": "",
             "url": "classes/App-Controller-ProductController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_index"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AcreateProduct\u0028\u0029",
-            "name": "createProduct",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_createProduct"
+            "url": "classes/App-Controller-ProductController.html#method_create"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowAllProduct\u0028\u0029",
-            "name": "showAllProduct",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowAll\u0028\u0029",
+            "name": "showAll",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showAllProduct"
+            "url": "classes/App-Controller-ProductController.html#method_showAll"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductById\u0028\u0029",
-            "name": "showProductById",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowById\u0028\u0029",
+            "name": "showById",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showProductById"
+            "url": "classes/App-Controller-ProductController.html#method_showById"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AdeleteProductById\u0028\u0029",
-            "name": "deleteProductById",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_deleteProductById"
+            "url": "classes/App-Controller-ProductController.html#method_delete"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AupdateProduct\u0028\u0029",
-            "name": "updateProduct",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_updateProduct"
+            "url": "classes/App-Controller-ProductController.html#method_update"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewAllProduct\u0028\u0029",
-            "name": "viewAllProduct",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewAll\u0028\u0029",
+            "name": "viewAll",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
+            "url": "classes/App-Controller-ProductController.html#method_viewAll"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewProductWithMinimumValue\u0028\u0029",
-            "name": "viewProductWithMinimumValue",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewMinValue\u0028\u0029",
+            "name": "viewMinValue",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue"
+            "url": "classes/App-Controller-ProductController.html#method_viewMinValue"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductByMinimumValue\u0028\u0029",
-            "name": "showProductByMinimumValue",
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowMinValue\u0028\u0029",
+            "name": "showMinValue",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
+            "url": "classes/App-Controller-ProductController.html#method_showMinValue"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AjsonPretty\u0028\u0029",
+            "name": "jsonPretty",
+            "summary": "Hj\u00E4lpmetod\u0020f\u00F6r\u0020JSON\u0020med\u0020pretty\u0020print",
+            "url": "classes/App-Controller-ProductController.html#method_jsonPretty"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003A\u0024productService",
+            "name": "productService",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#property_productService"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
-            "summary": "",
+            "summary": "Class\u0020Dice\u0020representerar\u0020en\u0020t\u00E4rning\u0020med\u0020ett\u0020v\u00E4rde\u0020mellan\u00201\u0020och\u00206.",
             "url": "classes/App-Dice-Dice.html"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#method___construct"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003Aroll\u0028\u0029",
             "name": "roll",
-            "summary": "",
+            "summary": "Sl\u00E5\u0020t\u00E4rningen\u0020och\u0020returnera\u0020v\u00E4rdet.",
             "url": "classes/App-Dice-Dice.html#method_roll"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "H\u00E4mta\u0020det\u0020senaste\u0020v\u00E4rdet.",
             "url": "classes/App-Dice-Dice.html#method_getValue"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetAsString\u0028\u0029",
             "name": "getAsString",
-            "summary": "",
+            "summary": "Returnera\u0020t\u00E4rningens\u0020v\u00E4rde\u0020som\u0020str\u00E4ng.",
             "url": "classes/App-Dice-Dice.html#method_getAsString"
+        },                {
+            "fqsen": "\\App\\Dice\\Dice\u003A\u003AhasRolled\u0028\u0029",
+            "name": "hasRolled",
+            "summary": "Kontrollera\u0020om\u0020t\u00E4rningen\u0020har\u0020kastats.",
+            "url": "classes/App-Dice-Dice.html#method_hasRolled"
         },                {
             "fqsen": "\\App\\Dice\\Dice\u003A\u003A\u0024value",
             "name": "value",
@@ -483,22 +513,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic",
             "name": "DiceGraphic",
-            "summary": "",
+            "summary": "Class\u0020Dice\u0020representerar\u0020en\u0020t\u00E4rning\u0020med\u0020ett\u0020v\u00E4rde\u0020mellan\u00201\u0020och\u00206.",
             "url": "classes/App-Dice-DiceGraphic.html"
-        },                {
-            "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Dice-DiceGraphic.html#method___construct"
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003AgetAsString\u0028\u0029",
             "name": "getAsString",
-            "summary": "",
+            "summary": "Returnerar\u0020t\u00E4rningens\u0020grafiska\u0020symbol.",
             "url": "classes/App-Dice-DiceGraphic.html#method_getAsString"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003AgetColor\u0028\u0029",
+            "name": "getColor",
+            "summary": "Returnerar\u0020t\u00E4rningens\u0020grafiska\u0020f\u00E4rg.\u0020\u0028valfritt\u0029",
+            "url": "classes/App-Dice-DiceGraphic.html#method_getColor"
         },                {
             "fqsen": "\\App\\Dice\\DiceGraphic\u003A\u003A\u0024representation",
             "name": "representation",
-            "summary": "",
+            "summary": "Grafisk\u0020representation\u0020av\u0020t\u00E4rningen\u0020\u0028Unicode\u0029.",
             "url": "classes/App-Dice-DiceGraphic.html#property_representation"
         },                {
             "fqsen": "\\App\\Dice\\DiceHand",
@@ -931,6 +961,86 @@ Search.appendIndex(
             "summary": "Find\u0020all\u0020products\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
             "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue2"
         },                {
+            "fqsen": "\\App\\Service\\LibraryService",
+            "name": "LibraryService",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003AcreateBook\u0028\u0029",
+            "name": "createBook",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#method_createBook"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003AupdateBook\u0028\u0029",
+            "name": "updateBook",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#method_updateBook"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003AdeleteBook\u0028\u0029",
+            "name": "deleteBook",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#method_deleteBook"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003AresetLibrary\u0028\u0029",
+            "name": "resetLibrary",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#method_resetLibrary"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003A\u0024entityManager",
+            "name": "entityManager",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#property_entityManager"
+        },                {
+            "fqsen": "\\App\\Service\\LibraryService\u003A\u003A\u0024bookRepository",
+            "name": "bookRepository",
+            "summary": "",
+            "url": "classes/App-Service-LibraryService.html#property_bookRepository"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService",
+            "name": "ProductService",
+            "summary": "",
+            "url": "classes/App-Service-ProductService.html"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Service-ProductService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003AcreateRandomProduct\u0028\u0029",
+            "name": "createRandomProduct",
+            "summary": "Skapar\u0020ett\u0020nytt\u0020produkt\u0020med\u0020slumpm\u00E4ssigt\u0020namn\u0020och\u0020v\u00E4rde",
+            "url": "classes/App-Service-ProductService.html#method_createRandomProduct"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003AgetAllProducts\u0028\u0029",
+            "name": "getAllProducts",
+            "summary": "H\u00E4mta\u0020alla\u0020produkter",
+            "url": "classes/App-Service-ProductService.html#method_getAllProducts"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003AgetProductOrFail\u0028\u0029",
+            "name": "getProductOrFail",
+            "summary": "H\u00E4mta\u0020produkt\u0020eller\u0020kasta\u0020404",
+            "url": "classes/App-Service-ProductService.html#method_getProductOrFail"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003AupdateProductValue\u0028\u0029",
+            "name": "updateProductValue",
+            "summary": "Uppdatera\u0020v\u00E4rdet\u0020p\u00E5\u0020produkt",
+            "url": "classes/App-Service-ProductService.html#method_updateProductValue"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003AdeleteProduct\u0028\u0029",
+            "name": "deleteProduct",
+            "summary": "Ta\u0020bort\u0020produkt",
+            "url": "classes/App-Service-ProductService.html#method_deleteProduct"
+        },                {
+            "fqsen": "\\App\\Service\\ProductService\u003A\u003A\u0024doctrine",
+            "name": "doctrine",
+            "summary": "",
+            "url": "classes/App-Service-ProductService.html#property_doctrine"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -975,5 +1085,10 @@ Search.appendIndex(
             "name": "Repository",
             "summary": "",
             "url": "namespaces/app-repository.html"
+        },                {
+            "fqsen": "\\App\\Service",
+            "name": "Service",
+            "summary": "",
+            "url": "namespaces/app-service.html"
         }            ]
 );

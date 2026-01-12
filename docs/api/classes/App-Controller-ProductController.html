@@ -88,6 +88,10 @@
                 <a href="namespaces/app-repository.html" class="">Repository</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/app-service.html" class="">Service</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -147,7 +151,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -172,6 +176,19 @@
 
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/App-Controller-ProductController.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/App-Controller-ProductController.html#property_productService">$productService</a>
+    <span>
+                        &nbsp;: <a href="classes/App-Service-ProductService.html"><abbr title="\App\Service\ProductService">ProductService</abbr></a>            </span>
+</dt>
+
+    </dl>
 
 <h4 id="toc-methods">
     Methods
@@ -180,13 +197,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_createProduct">createProduct()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/App-Controller-ProductController.html#method_create">create()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_deleteProductById">deleteProductById()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_delete">delete()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
@@ -198,40 +221,47 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_showAllProduct">showAllProduct()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_showAll">showAll()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_showProductById">showProductById()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_showById">showById()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_showProductByMinimumValue">showProductByMinimumValue()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_showMinValue">showMinValue()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_updateProduct">updateProduct()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_update">update()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_viewAllProduct">viewAllProduct()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_viewAll">viewAll()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue">viewProductWithMinimumValue()</a>
+    <a class="" href="classes/App-Controller-ProductController.html#method_viewMinValue">viewMinValue()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/App-Controller-ProductController.html#method_jsonPretty">jsonPretty()</a>
+    <span>
+                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+</dt>
+<dd>Hjälpmetod för JSON med pretty print</dd>
 
     </dl>
 
@@ -240,6 +270,50 @@
         
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/App-Controller-ProductController.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_productService">
+        $productService
+        <a href="classes/App-Controller-ProductController.html#property_productService" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/App-Service-ProductService.html"><abbr title="\App\Service\ProductService">ProductService</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$productService</span>
+    </code>
+
+    
+    
+    
+
+        
+        
+
+</article>
+            </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
@@ -253,22 +327,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_createProduct">
-        createProduct()
-        <a href="classes/App-Controller-ProductController.html#method_createProduct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/App-Controller-ProductController.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">createProduct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$doctrine</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Service-ProductService.html"><abbr title="\App\Service\ProductService">ProductService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productService</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -277,8 +351,8 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$doctrine</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr></span>
+                <span class="phpdocumentor-argument-list__argument__name">$productService</span>
+                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Service-ProductService.html"><abbr title="\App\Service\ProductService">ProductService</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -288,9 +362,43 @@
     
 
         
+    
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_create">
+        create()
+        <a href="classes/App-Controller-ProductController.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+        
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_createProduct#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_create#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -318,22 +426,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_deleteProductById">
-        deleteProductById()
-        <a href="classes/App-Controller-ProductController.html#method_deleteProductById" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_delete">
+        delete()
+        <a href="classes/App-Controller-ProductController.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">deleteProductById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$doctrine</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -341,13 +449,6 @@
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$doctrine</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-argument-list__argument__name">$id</span>
                 : <span class="phpdocumentor-argument-list__argument__type">int</span>
@@ -362,7 +463,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_deleteProductById#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_delete#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -398,7 +499,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -445,44 +546,34 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_showAllProduct">
-        showAllProduct()
-        <a href="classes/App-Controller-ProductController.html#method_showAllProduct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_showAll">
+        showAll()
+        <a href="classes/App-Controller-ProductController.html#method_showAll" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">showAllProduct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productRepository</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">showAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$productRepository</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
 
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_showAllProduct#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_showAll#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -510,22 +601,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_showProductById">
-        showProductById()
-        <a href="classes/App-Controller-ProductController.html#method_showProductById" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_showById">
+        showById()
+        <a href="classes/App-Controller-ProductController.html#method_showById" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">showProductById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">showById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -533,13 +624,6 @@
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$productRepository</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-argument-list__argument__name">$id</span>
                 : <span class="phpdocumentor-argument-list__argument__type">int</span>
@@ -554,7 +638,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_showProductById#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_showById#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -582,22 +666,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_showProductByMinimumValue">
-        showProductByMinimumValue()
-        <a href="classes/App-Controller-ProductController.html#method_showProductByMinimumValue" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_showMinValue">
+        showMinValue()
+        <a href="classes/App-Controller-ProductController.html#method_showMinValue" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">showProductByMinimumValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">showMinValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$repo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -606,7 +690,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$productRepository</span>
+                <span class="phpdocumentor-argument-list__argument__name">$repo</span>
                 : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -626,7 +710,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_showProductByMinimumValue#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_showMinValue#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -654,22 +738,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_updateProduct">
-        updateProduct()
-        <a href="classes/App-Controller-ProductController.html#method_updateProduct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_update">
+        update()
+        <a href="classes/App-Controller-ProductController.html#method_update" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">updateProduct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$doctrine</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">update</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -677,13 +761,6 @@
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$doctrine</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-argument-list__argument__name">$id</span>
                 : <span class="phpdocumentor-argument-list__argument__type">int</span>
@@ -705,7 +782,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_updateProduct#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_update#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -733,22 +810,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_viewAllProduct">
-        viewAllProduct()
-        <a href="classes/App-Controller-ProductController.html#method_viewAllProduct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_viewAll">
+        viewAll()
+        <a href="classes/App-Controller-ProductController.html#method_viewAll" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">viewAllProduct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productRepository</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">viewAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$repo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -757,7 +834,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$productRepository</span>
+                <span class="phpdocumentor-argument-list__argument__name">$repo</span>
                 : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -770,7 +847,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_viewAllProduct#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_viewAll#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -798,22 +875,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_viewProductWithMinimumValue">
-        viewProductWithMinimumValue()
-        <a href="classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_viewMinValue">
+        viewMinValue()
+        <a href="classes/App-Controller-ProductController.html#method_viewMinValue" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">viewProductWithMinimumValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$productRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">viewMinValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$repo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -822,7 +899,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$productRepository</span>
+                <span class="phpdocumentor-argument-list__argument__name">$repo</span>
                 : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/App-Repository-ProductRepository.html"><abbr title="\App\Repository\ProductRepository">ProductRepository</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -842,7 +919,7 @@
         
             <section class="phpdocumentor-attributes">
             <h5 class="phpdocumentor-elements__header" id="attributes">
-                Attributes <a href="classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+                Attributes <a href="classes/App-Controller-ProductController.html#method_viewMinValue#attributes" class="headerlink"><i class="fas fa-link"></i></a>
 
             </h5>
                             <dl class="phpdocumentor-argument-list">
@@ -857,6 +934,55 @@
     </dd>
     </dl>
                     </section>
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_jsonPretty">
+        jsonPretty()
+        <a href="classes/App-Controller-ProductController.html#method_jsonPretty" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/ProductController.php"><a href="files/src-controller-productcontroller.html"><abbr title="src/Controller/ProductController.php">ProductController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Hjälpmetod för JSON med pretty print</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">jsonPretty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$data</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        
     
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -971,23 +1097,32 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/App-Controller-ProductController.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/App-Controller-ProductController.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/App-Controller-ProductController.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/App-Controller-ProductController.html#property_productService">$productService</a></li>
+                                            </ul>
+                </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_createProduct">createProduct()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_deleteProductById">deleteProductById()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_create">create()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_delete">delete()</a></li>
                                             <li class=""><a href="classes/App-Controller-ProductController.html#method_index">index()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showAllProduct">showAllProduct()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showProductById">showProductById()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showProductByMinimumValue">showProductByMinimumValue()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_updateProduct">updateProduct()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_viewAllProduct">viewAllProduct()</a></li>
-                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue">viewProductWithMinimumValue()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showAll">showAll()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showById">showById()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_showMinValue">showMinValue()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_update">update()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_viewAll">viewAll()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_viewMinValue">viewMinValue()</a></li>
+                                            <li class=""><a href="classes/App-Controller-ProductController.html#method_jsonPretty">jsonPretty()</a></li>
                                     </ul>
             </li>
                     </ul>

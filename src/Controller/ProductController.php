@@ -10,10 +10,9 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
 use App\Service\ProductService;
 
-
 final class ProductController extends AbstractController
 {
-      public function __construct(private ProductService $productService)
+    public function __construct(private ProductService $productService)
     {
     }
 
